@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Yape App</title>
+    <link rel="stylesheet" href="style_dashboard.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app-shell" id="mainApp">
+        <header class="main-header">
+            <div class="user-nav">
+                <span>Hola, <span id="displayUserName">Cristian</span></span>
+                <div class="headset-icon">🎧</div>
+            </div>
+            <div class="top-actions-grid">
+                <div class="action-card"><div class="icon-wrap"><img src="https://img.icons8.com/color/96/smartphone.png"></div><p>Recargar crédito</p></div>
+                <div class="action-card"><div class="icon-wrap"><span class="badge-new">Nuevo</span><img src="https://img.icons8.com/external-flat-icons-inmotus-design/67/external-Water-drop-water-flat-icons-inmotus-design.png" class="service-icon"></div><p>Yapear servicios</p></div>
+                <div class="action-card" onclick="openTransfer()"><div class="icon-wrap"><img src="https://img.icons8.com/fluency/96/refresh.png"></div><p>Enviar a otro Yape</p></div>
+                <div class="action-card" onclick="openTransfer()"><div class="icon-wrap"><img src="https://img.icons8.com/color/96/museum.png"></div><p>Enviar a otro banco</p></div>
+            </div>
+            <div class="promo-section">
+                <div class="promo-banner-tigo">
+                    <div class="promo-info"><span class="p-tag">Recarga de crédito</span><h3>¡Megas ilimitados!</h3><p>RECARGA AQUÍ</p></div>
+                    <img src="https://img.icons8.com/color/200/smiling-worker.png" class="p-img">
+                </div>
+            </div>
+        </header>
+
+        <main class="content-body">
+            <div class="balance-container" onclick="toggleBalance()">
+                <div class="balance-left"><div id="eyeIcon" class="eye-css"><div class="eye-ball"></div><div class="eye-slash"></div></div><span id="balanceLabel">Mostrar saldo</span></div>
+                <div class="balance-amount hidden" id="balanceAmount">Bs 3,000.00</div>
+            </div>
+            <div class="money-actions">
+                <button class="btn-money"><span class="circle-icon cyan">+</span> Agregar dinero</button>
+                <button class="btn-money"><span class="circle-icon red">-</span> Retirar dinero</button>
+            </div>
+        </main>
+
+        <nav class="footer-nav">
+            <div class="nav-btn active" onclick="showTab('home')"><span>🏠</span><p>Home</p></div>
+            <div class="nav-btn" onclick="showTab('movimientos')"><span>📋</span><p>Movimientos</p></div>
+            <div class="qr-center-btn"><div class="qr-inner">QR</div></div>
+            <div class="nav-btn" onclick="showTab('servicios')"><span>💼</span><p>Servicios</p></div>
+            <div class="nav-btn" onclick="openProfile()"><span>👤</span><p>Mi Perfil</p></div>
+        </nav>
+    </div>
+
+    <div id="transferScreen" class="full-screen-modal">
+        <div class="modal-header"><span onclick="closeAll()">←</span> <h3>Datos del Pago</h3></div>
+        <div class="form-container">
+            <div class="input-group"><label>Nombre del Destinatario</label><input type="text" id="f_nombre" placeholder="Ej: Marcel Fernando"></div>
+            <div class="input-group"><label>Monto (Bs)</label><input type="number" id="f_monto" placeholder="0.00"></div>
+            <div class="input-group"><label>Número de Cuenta/Celular</label><input type="text" id="f_cuenta" placeholder="2081917583"></div>
+            <div class="input-group"><label>Banco Destino</label><input type="text" id="f_banco" placeholder="Banco Económico"></div>
+            <div class="input-group"><label>Glosa / Nota</label><input type="text" id="f_nota" value="Compra activos virtuales"></div>
+            <button class="btn-yapear-main" onclick="generateReceipt()">Generar Comprobante</button>
+        </div>
+    </div>
+
+    <div id="receiptScreen" class="full-screen-modal receipt-bg">
+        <div class="receipt-header"><div class="yape-logo-header"><span>Bs</span> yape</div><span class="close-receipt" onclick="closeAll()">✕</span></div>
+        <div class="receipt-card">
+            <div class="receipt-top-row"><h2 class="y-title">¡Yapeaste!</h2><div class="share-btn-top"><span><img src="https://img.icons8.com/material-outlined/24/00efbc/share.png"></span> Compartir</div></div>
+            <h1 class="y-amount">Bs <span id="r_monto">0</span></h1>
+            <p class="y-dest-name" id="r_nombre">Nombre del Destinatario</p>
+            <p class="y-full-date" id="r_fecha">-- ---. 2026 | --:--</p>
+            <div class="y-note-box"><img src="https://img.icons8.com/material-rounded/24/2c3e50/comments.png"><span id="r_nota">Compra activos virtuales</span></div>
+            <hr class="receipt-divider">
+            <div class="transaction-details">
+                <p class="section-title">DATOS DE LA TRANSACCIÓN</p>
+                <div class="detail-row"><span>Cuenta</span> <b id="r_cuenta">---</b></div>
+                <div class="detail-row"><span>Destino</span> <b id="r_banco">---</b></div>
+                <div class="detail-row"><span>Nro. de transacción</span> <b id="r_nro">---</b></div>
+                <div class="detail-row"><span>Realizado por</span> <b class="r-by">por: <span id="r_remitente">Cristian</span></b></div>
+            </div>
+        </div>
+    </div>
+
+    <div id="profileModal" class="modal-overlay">
+        <div class="bottom-sheet">
+            <h3>Configuración de Perfil</h3>
+            <p>Edita el nombre que aparece en la App y Comprobantes:</p>
+            <input type="text" id="nameInput" placeholder="Tu nombre">
+            <button class="btn-save-profile" onclick="saveProfile()">Guardar Cambios</button>
+            <button class="btn-cancel" onclick="closeAll()">Cancelar</button>
+        </div>
+    </div>
+
+    <script src="script_dashboard.js"></script>
+</body>
+</html>
