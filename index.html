@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yape | Login</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="app-container">
+        <header class="top-nav">
+            <div class="info-circle" id="btnInfo">i</div>
+            <button class="help-pill" id="btnHelp">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M3 18v-6a9 9 0 0 1 18 0v6"></path><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"></path></svg>
+                Ayuda
+            </button>
+        </header>
+
+        <section class="branding">
+            <div class="currency-tag">Bs</div>
+            <h1 class="logo-yape">yape</h1>
+        </section>
+
+        <main class="login-box">
+            <div class="field-wrapper">
+                <label>Tu número de celular</label>
+                <div class="phone-input-container">
+                    <input type="tel" id="phoneNumber" maxlength="8" placeholder=" " autocomplete="off">
+                    <span class="custom-caret">|</span>
+                </div>
+            </div>
+
+            <div class="field-wrapper">
+                <label>Ingresa tu clave Yape</label>
+                <div class="pin-row">
+                    <div class="pin-inputs" id="pinGroup">
+                        <input type="password" maxlength="1" inputmode="numeric" class="pin-field">
+                        <input type="password" maxlength="1" inputmode="numeric" class="pin-field">
+                        <input type="password" maxlength="1" inputmode="numeric" class="pin-field">
+                        <input type="password" maxlength="1" inputmode="numeric" class="pin-field">
+                    </div>
+                    
+                    <button type="button" class="eye-toggle" id="togglePin">
+                        <svg id="eyeIcon" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                            <path class="eye-open" d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                            <circle class="eye-open" cx="12" cy="12" r="3"></circle>
+                            <line id="eyeSlash" x1="1" y1="1" x2="23" y2="23" style="display: block; stroke: white;"></line>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            <button type="button" class="btn-submit" id="submitBtn">INGRESAR</button>
+        </main>
+    </div>
+
+    <div id="modalInfo" class="modal-overlay">
+        <div class="modal-content">
+            <h3>Sobre Yape</h3>
+            <p>Versión 2.4.5 - Bolivia</p>
+            <p>Tu billetera móvil segura para enviar y recibir dinero gratis, pagar servicios y recargar crédito.</p>
+            <button class="btn-close">Entendido</button>
+        </div>
+    </div>
+
+    <div id="modalHelp" class="modal-overlay">
+        <div class="modal-content">
+            <h3>Soporte Yape</h3>
+            <p>¿Tienes problemas con tu cuenta? Contáctanos por nuestros canales oficiales:</p>
+            <div class="support-links">
+                <a href="#" class="btn-support whatsapp">WhatsApp Soporte</a>
+                <a href="#" class="btn-support">Centro de Ayuda</a>
+            </div>
+            <button class="btn-close">Cerrar</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
