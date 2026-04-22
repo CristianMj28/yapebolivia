@@ -1,11 +1,12 @@
 /* =========================================
-   STYLE_DASHBOARD.CSS - VERSIÓN FINAL OMNI
+   STYLE_DASHBOARD.CSS - VERSIÓN FINAL 2026
    ========================================= */
 
 :root {
     --yape-purple: #741793;
     --yape-mint: #00efbc;
     --yape-bg: #f4f4f7;
+    --yape-sky: #00D1FF;
     --white: #ffffff;
     --text-dark: #1a1a1a;
     --gray-text: #8c8c8c;
@@ -57,40 +58,49 @@ body {
 
 .icon-wrap {
     background: white;
-    width: 62px;
-    height: 62px;
-    border-radius: 20px;
+    width: 64px;
+    height: 64px;
+    border-radius: 22px;
     display: flex;
     align-items: center;
     justify-content: center;
     margin: 0 auto 8px;
     position: relative;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
 }
 
-.service-icon { width: 34px !important; }
+.icon-wrap img {
+    width: 38px;
+    height: 38px;
+    object-fit: contain;
+}
+
+.service-icon { width: 36px !important; }
 
 .badge-new {
     position: absolute;
-    top: -8px;
-    background: #FFD700;
+    top: -6px;
+    right: -2px;
+    background: #FFD200;
     color: black;
-    font-size: 0.55rem;
-    padding: 2px 6px;
-    border-radius: 6px;
+    font-size: 0.58rem;
+    padding: 2px 7px;
+    border-radius: 8px;
     border: 2px solid var(--yape-purple);
     font-weight: 800;
+    text-transform: uppercase;
 }
 
 .action-card p {
-    font-size: 0.62rem;
+    font-size: 0.65rem;
     text-align: center;
     color: white;
-    font-weight: 600;
+    font-weight: 700;
     line-height: 1.2;
+    margin-top: 4px;
 }
 
-/* --- PUBLICIDAD MEJORADA (TIGO) --- */
+/* --- PUBLICIDAD MEJORADA --- */
 .promo-banner-tigo {
     background: linear-gradient(135deg, #ffffff 0%, #f9f9f9 100%);
     border-radius: 25px;
@@ -106,9 +116,18 @@ body {
 .p-tag { background: var(--yape-purple); color: white; font-size: 0.6rem; padding: 4px 10px; border-radius: 10px; width: fit-content; margin-bottom: 8px; font-weight: 700; }
 .promo-info h3 { font-size: 0.95rem; color: #000; font-weight: 800; line-height: 1.2; }
 .promo-info p { font-size: 0.7rem; font-weight: 800; color: #000; margin-top: 5px; }
-.p-img { height: 135px; position: absolute; right: -5px; bottom: 0; z-index: 1; }
 
-/* --- CUERPO DASHBOARD --- */
+.p-img {
+    height: 100%;
+    width: auto;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+    object-fit: contain;
+}
+
+/* --- CONTENIDO DASHBOARD --- */
 .content-body {
     background: var(--yape-bg);
     border-radius: 30px 30px 0 0;
@@ -140,7 +159,7 @@ body {
 .cyan { background: var(--yape-mint); }
 .red { background: #ff4b5c; }
 
-/* --- FORMULARIOS Y MODALES --- */
+/* --- FORMULARIOS --- */
 .full-screen-modal { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 2000; display: none; flex-direction: column; background: white; }
 .modal-header { background: var(--yape-purple); color: white; padding: 20px; display: flex; align-items: center; gap: 20px; }
 .form-container { padding: 25px 20px; flex: 1; overflow-y: auto; }
@@ -149,11 +168,8 @@ body {
 .input-group input { width: 100%; padding: 15px; border-radius: 12px; border: 1.5px solid #eee; font-size: 1rem; font-weight: 600; }
 .btn-yapear-main { width: 100%; background: var(--yape-mint); color: #0b6352; border: none; padding: 18px; border-radius: 15px; font-weight: 800; font-size: 1.1rem; }
 
-/* --- COMPROBANTE (RÉPLICA FIEL) --- */
+/* --- COMPROBANTE: LOGO "Bs yape" Y TARJETA --- */
 .receipt-bg { background: var(--yape-purple); padding-top: 15px; }
-.receipt-header { display: flex; justify-content: space-between; padding: 0 25px 20px; align-items: center; }
-
-/* Logo Bs yape */
 .yape-logo-header { display: flex; align-items: center; color: white; font-weight: 800; font-size: 1.6rem; letter-spacing: -0.5px; }
 .yape-logo-header span { background-color: var(--yape-mint); color: var(--yape-purple); font-size: 0.65rem; font-weight: 900; padding: 3px 5px; border-radius: 5px; margin-right: 6px; text-transform: uppercase; line-height: 1; }
 
@@ -161,6 +177,7 @@ body {
     background: white; margin: 0 18px; border-radius: 30px; padding: 35px 25px;
     background-image: radial-gradient(var(--yape-purple) 0.6px, transparent 0.6px);
     background-size: 20px 20px; position: relative;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.2);
 }
 
 .y-title { color: var(--yape-purple); font-weight: 800; font-size: 1.4rem; }
@@ -180,12 +197,27 @@ body {
 .modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); display: none; align-items: flex-end; z-index: 3000; }
 .bottom-sheet { background: white; width: 100%; border-radius: 25px 25px 0 0; padding: 30px 20px; }
 .btn-save-profile { width: 100%; background: var(--yape-purple); color: white; border: none; padding: 16px; border-radius: 14px; font-weight: 700; margin-top: 12px; }
+.btn-cancel { width: 100%; background: transparent; border: none; padding: 15px; color: var(--gray-text); font-weight: 600; }
 
-/* --- NAVEGACIÓN --- */
+/* --- NAVEGACIÓN Y QR CELESTE --- */
 .footer-nav { position: fixed; bottom: 0; width: 100%; background: white; display: flex; justify-content: space-around; padding: 10px 0 30px; border-top: 1px solid #eee; }
 .nav-btn { text-align: center; color: var(--gray-text); }
 .nav-btn.active { color: var(--yape-purple); }
 .nav-btn p { font-size: 0.65rem; font-weight: 700; margin-top: 4px; }
-.qr-inner { background: var(--yape-mint); width: 68px; height: 68px; border-radius: 50%; border: 5px solid white; display: flex; align-items: center; justify-content: center; box-shadow: 0 5px 15px rgba(0, 239, 188, 0.4); font-weight: 800; color: var(--yape-purple); margin-top: -35px; }
+
+.qr-inner-modern {
+    background: var(--yape-sky);
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    border: 6px solid white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: -38px;
+    box-shadow: 0 6px 16px rgba(0, 209, 255, 0.4);
+}
+
+.qr-svg { width: 32px; height: 32px; }
 
 .hidden { display: none !important; }
