@@ -239,8 +239,3 @@ body {
 .modal-overlay.active { 
     display: flex; 
 }
-    font-weight: 600;
-    cursor: pointer;
-}
-
-.active { display: flex; }
